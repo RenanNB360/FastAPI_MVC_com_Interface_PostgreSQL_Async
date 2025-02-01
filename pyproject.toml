@@ -8,7 +8,14 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.12,<4"
 dependencies = [
-    "fastapi[standard] (>=0.115.8,<0.116.0)"
+    "fastapi[standard] (>=0.115.8,<0.116.0)",
+    "jinja2 (>=3.1.5,<4.0.0)",
+    "uvicorn (>=0.34.0,<0.35.0)",
+    "python-multipart (>=0.0.20,<0.0.21)",
+    "aiofile (>=3.9.0,<4.0.0)",
+    "sqlalchemy (>=2.0.37,<3.0.0)",
+    "psycopg2-binary (>=2.9.10,<3.0.0)",
+    "asyncpg (>=0.30.0,<0.31.0)"
 ]
 
 
@@ -40,7 +47,7 @@ addopts = '-p no:warnings'
 norecursedirs = 'frontend'
 
 [tool.taskipy.tasks]
-run = 'app dev app/main.py'
+run = 'fastapi dev app/main.py'
 
 pre_test = 'task lint'
 test = 'pytest --cov=app -vv'
